@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page protégée par mot de passe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 1em;
+            margin: 1em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            padding: 1em 2em;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: 'Montserrat', sans-serif;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        let attemptCount = 0;
+
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "Eau mon Adam") {
+                window.location.href = "https://youtu.be/7tCyHhjYi_8";
+            } else {
+                attemptCount++;
+                if (attemptCount >= 100) {
+                    window.location.href = "https://youtu.be/7tCyHhjYi_8";
+                } else {
+                    alert("Mot de passe incorrect. Veuillez réessayer.");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Accès protégé</h1>
+        <p>Veuillez entrer le mot de passe pour accéder à la page :</p>
+        <input type="password" id="password" placeholder="Entrez le mot de passe">
+        <button onclick="checkPassword()">Soumettre</button>
+    </div>
+</body>
+</html>
